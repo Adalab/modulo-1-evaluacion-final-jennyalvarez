@@ -1,0 +1,536 @@
+@use "sass:color";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+  line-height: 4rem;
+  padding-inline: 2rem;
+}
+
+// VARIABLES //
+
+$color-primary: #6c933e;
+$color-white: #ffffff;
+$color-black: #333333;
+$color-bg-light: #f5f5f5;
+$color-text: #4a4a4a;
+
+$font-main: "Roboto", Arial, Helvetica, sans-serif;
+
+// RESET Y BASE //
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-main;
+  color: $color-text;
+  line-height: 1.6;
+}
+
+// BOTÓN HAMBURGUESA FIJO //
+
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-color: $color-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  text-decoration: none;
+  cursor: pointer;
+
+  i {
+    color: $color-white;
+    font-size: 18px;
+  }
+
+  &:hover {
+    background-color: color.adjust($color-primary, $lightness: -10%);
+  }
+}
+
+// HERO SECTION (FLEXBOX) //
+
+.hero {
+  background-image: url("../images/cover.jpeg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.hero-text-1 {
+  color: $color-white;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hero-text-2 {
+  color: $color-white;
+  font-size: 12px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.hero-arrow {
+  position: absolute;
+  bottom: 37px;
+  width: 25px;
+  height: 25px;
+  background-color: $color-white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  i {
+    color: $color-primary;
+    font-size: 20px;
+  }
+
+  &:hover {
+    transform: translateY(5px);
+    background-color: color.adjust($color-white, $lightness: 5%);
+  }
+}
+
+// SECCION TIENDA DE DEPORTE //
+
+.shop {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.shop-subtitle {
+  color: $color-primary;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.shop-title {
+  font-size: 32px;
+  color: $color-black;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.shop-text {
+  color: $color-text;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.button-shop {
+  color: $color-primary;
+  border-radius: 25px;
+  border: 2px solid $color-primary;
+  padding: 12px 40px;
+  background-color: transparent;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1);
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
+
+// SECCIÓN VUELTA AL COLE (CSS GRID) //
+
+.school {
+  background-color: $color-bg-light;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.school-subtitle {
+  color: $color-text;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.school-title {
+  font-size: 32px;
+  color: $color-black;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.school-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.school-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 850px;
+  }
+
+  p {
+    color: $color-text;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.button-school {
+  color: $color-white;
+  border-radius: 25px;
+  border: 2px solid $color-primary;
+  padding: 12px 40px;
+  background-color: $color-primary;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: color.adjust($color-primary, $lightness: -10%);
+    border-color: color.adjust($color-primary, $lightness: -10%);
+  }
+}
+
+// FOOTER //
+
+.footer {
+  background-color: $color-black;
+  color: $color-white;
+  padding: 60px 20px 30px;
+  position: relative;
+  text-align: center;
+}
+
+.footer-arrow {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: $color-white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+
+  i {
+    color: $color-primary;
+    font-size: 20px;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+
+    i {
+      color: $color-white;
+    }
+  }
+}
+
+// ANIMACIÓN PARA EL BOTÓN DEL FOOTER (BONUS)
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.footer-column {
+  text-align: center;
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: $color-white;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        color: $color-white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+// MEDIA QUERIES - TABLET //
+
+@media screen and (min-width: 768px) {
+  .hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: $color-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-decoration: none;
+    cursor: pointer;
+
+    i {
+      color: $color-white;
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: color.adjust($color-primary, $lightness: -10%);
+    }
+  }
+
+  .hero-text-1 {
+    font-size: 70px;
+  }
+
+  .hero-text-2 {
+    font-size: 20px;
+  }
+
+  .shop-text {
+    color: $color-text;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+
+  .shop-title,
+  .school-title {
+    font-size: 40px;
+  }
+
+  .button-shop {
+    color: $color-primary;
+    border-radius: 25px;
+    border: 2px solid $color-primary;
+    padding: 12px 40px;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1);
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+
+  .school-subtitle {
+    color: $color-text;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .school-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .footer-columns {
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+  }
+
+  .footer-column {
+    text-align: left;
+  }
+
+  .hero-arrow {
+    position: absolute;
+    bottom: 50px;
+    width: 30px;
+    height: 30px;
+    background-color: $color-white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+}
+
+// MEDIA QUERIES - DESKTOP //
+
+@media screen and (min-width: 1024px) {
+  .hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: $color-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-decoration: none;
+    cursor: pointer;
+
+    i {
+      color: $color-white;
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: color.adjust($color-primary, $lightness: -10%);
+    }
+  }
+
+  .hero-text-1 {
+    font-size: 90px;
+  }
+
+  .hero-text-2 {
+    font-size: 24px;
+  }
+
+  .school-subtitle {
+    color: $color-text;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .shop-title,
+  .school-title {
+    font-size: 48px;
+  }
+
+  .shop-text {
+    font-size: 18px;
+  }
+
+  .school-grid {
+    gap: 50px;
+  }
+
+  .hero {
+    background-image: url("../images/cover.jpeg");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+  }
+  .hero-arrow {
+    position: absolute;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: $color-white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+}
